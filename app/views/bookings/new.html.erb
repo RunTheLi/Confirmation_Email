@@ -1,0 +1,21 @@
+<%= form_with model: @booking, local: true do |form| %>
+  <div>
+    <%= form.label :flight_id %>
+    <%= form.number_field :flight_id %>
+  </div>
+
+  <%= form.fields_for :passengers do |p_form| %>
+    <div>
+      <%= p_form.label :name %>
+      <%= p_form.text_field :name %>
+    </div>
+    <div>
+      <%= p_form.label :email %>
+      <%= p_form.email_field :email %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit "Book Flight" %>
+  </div>
+<% end %>
