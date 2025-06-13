@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_13_060509) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_13_062948) do
   create_table "bookings", force: :cascade do |t|
     t.integer "flight_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
+  end
+
+  create_table "flights", force: :cascade do |t|
+    t.string "departure"
+    t.string "arrival"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "passengers", force: :cascade do |t|

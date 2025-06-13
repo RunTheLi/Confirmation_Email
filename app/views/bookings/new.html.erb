@@ -1,7 +1,7 @@
 <%= form_with model: @booking, local: true do |form| %>
   <div>
-    <%= form.label :flight_id %>
-    <%= form.number_field :flight_id %>
+    <%= form.label :flight_id, "Select Flight" %>
+    <%= form.collection_select :flight_id, Flight.all, :id, :departure, prompt: "Choose a flight" %>
   </div>
 
   <%= form.fields_for :passengers do |p_form| %>
@@ -15,7 +15,5 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit "Book Flight" %>
-  </div>
+  <%= form.submit "Book Flight" %>
 <% end %>
